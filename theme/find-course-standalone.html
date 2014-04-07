@@ -1,0 +1,284 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edasia</title>
+<link href="style/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="style/edasian-beta.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="shortcut icon" href="assets/img/favicon.png">
+</link>
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="script/respond.min.js"></script>
+<script src="script/masonry.js"></script>
+<script type="text/javascript">
+ $(document).ready(function(){
+	 
+ //masonry section.
+$('#container-mosaic').masonry({
+itemSelector: '.item',
+columnWidth: 195,
+isAnimated: true,
+animationOptions: {
+duration: 750,
+easing: 'linear',
+queue: false
+  }});
+
+ //UX effect section.
+	$('.trigger').click(function() {
+	$('.bar-tittle').animate({"right": "-465px"}, "normal");
+	$('.wrap-show').fadeIn();
+	$('.trigger').fadeOut();
+	$('.trigger-stop').fadeIn();
+	});
+	
+	$('.trigger-stop').click(function() {
+		$('.bar-tittle').animate({"right": "0px"}, "normal");	
+		$('.wrap-show').fadeOut();
+		$('.trigger-stop').fadeOut();	
+		$('.trigger').fadeIn();});	
+  
+  $('.see-more').click(function() {
+	  $('.wrap-more-list').fadeIn('slow');
+	  $('.see-more').fadeOut('slow');
+	  $('.see-close').fadeIn('slow');
+
+  });
+  
+  $('.see-close').click(function() {
+	  $('.wrap-more-list').fadeOut('slow');
+	  $('.see-close').fadeOut('slow');
+	  $('.see-more').fadeIn('slow');
+  });
+  
+   });
+  
+  
+  </script>
+<script>
+$(document).ready(function() {
+
+    // Click event for any anchor tag that's href starts with #
+    $('a[href^="#"]').click(function(event) {
+
+        // The id of the section we want to go to.
+        var id = $(this).attr("href");
+
+        // An offset to push the content down from the top.
+        var offset = 73;
+
+        // Our scroll target : the top position of the
+        // section that has the id referenced by our href.
+        var target = $(id).offset().top - offset;
+
+        // The magic...smooth scrollin' goodness.
+        $('html, body').animate({scrollTop:target}, 500);
+
+        //prevent the page from jumping down to our section.
+        event.preventDefault();
+    });
+});
+</script>
+</head>
+<body>
+<!--Header-->
+<div id="showcase-bar">
+  <div class="menu menu-left">
+    <ul>
+      <li> <a class="logo" href="#">ED.asia</a> </li>
+      <li style="margin-left:23px;"><span class="space"></span></li>
+      <li style="margin-left:20px;"><a class="list-menu" href="#">ABOUT</a></li>
+    </ul>
+  </div>
+  <div class="menu menu-right">
+    <ul>
+      <li> <a class="signup" href="#">SIGN UP</a> </li>
+      <li><a class="list-menu" href="#">LOG IN</a></li>
+      <li><a class="list-menu" href="#">BLOG</a></li>
+      <li><a class="list-menu" href="#wrapper">FIND COURSE</a></li>
+    </ul>
+  </div>
+</div>
+<div style="width:100%; height:53px;"></div>
+<!--Mid-->
+<div id="wrapper">
+  <div class="main-header">
+    <h2>FIND COURSES <span style="font-size:12px;">-Ed.asia-</span></h2>
+  </div>
+  <div class="content">
+    <div id="header-tab">
+      <div class="div-one">
+        <ul>
+          <li> <a href="#">Most recent</a> </li>
+          <li> <a href="#">Most viewed</a> </li>
+          <li> <a href="#">Most liked</a> </li>
+          <li>
+            <form action="" method="get" id="changecatmosaic">
+              <div id="parentcategory" class="miniselect-parent" style="position: relative; width: 130px;">
+                <select name="category" class="selectlab">
+                  <option value="0">Categories</option>
+                  <option value="advertising">Advertising</option>
+                  <option value="animation">Animation</option>
+                  <option value="architecture">Architecture</option>
+                  <option value="design">Design</option>
+                  <option value="fashion">Fashion</option>
+                  <option value="graphic">Graphic</option>
+                  <option value="inspiration">Inspiration</option>
+                  <option value="interactive">Interactive</option>
+                  <option value="motion">Motion</option>
+                  <option value="music">Music</option>
+                  <option value="photography">Photography</option>
+                  <option value="print">Print</option>
+                  <option value="technology">Technology</option>
+                </select>
+                <span class="miniselect-brother">Catégories</span></div>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="div-two">
+        <ul>
+          <li> <span class="users">Join <font class="users-count">1.xxx.xxx.xxx</font> Students</span> </li>
+        </ul>
+      </div>
+      <div class="div-three">
+        <form action="#" method="get">
+          <div>
+            <input placeholder="Search courses" type="text" name="s" value="">
+            <button>Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="main-mosaic">
+      <div id="container-mosaic">
+        <div class="box item"><a class="course-choice" href="#">1</a></div>
+        <div class="box-width item"><a class="course-choice" href="#">2</a></div>
+        <div class="box-medium item"><a class="course-choice" href="#">3</a></div>
+        <div class="box item"><a class="course-choice" href="#">4</a></div>
+        <div class="box item"><a class="course-choice" href="#">5</a></div>
+        <div class="box item"><a class="course-choice" href="#">6</a></div>
+        <div class="box item"><a class="course-choice" href="#">7</a></div>
+        <div class="box item"><a class="course-choice" href="#">8</a></div>
+        <div class="box item"><a class="course-choice" href="#">9</a></div>
+        <div class="box item"><a class="course-choice" href="#">10</a></div>
+        <div class="box item">6</div>
+        <div class="box item"><a class="course-choice" href="#">8</a></div>
+        <div class="box item"><a class="course-choice" href="#">9</a></div>
+        <div class="box item"><a class="course-choice" href="#">10</a></div>
+        <div class="box item">7</div>
+        <div class="box item">8</div>
+        <div class="box item">9</div>
+        <div class="box item">10</div>
+        <div class="box item">6</div>
+        <div class="box item">7</div>
+        <div class="box item">8</div>
+        <div class="box item">9</div>
+        <div class="box item">10</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Footer-->
+<div id="footer">
+  <div class="footer-container">
+    <div class="tab-footer">
+      <h2> News & Announcements <span style="font-size:10px;">-Ed.asia-</span> </h2>
+    </div>
+    <div class="tab-footer-slide">
+      <div class="content-news">
+        <div class="box-strap"></div>
+        <div class="box-strap"></div>
+        <div class="box-strap"></div>
+      </div>
+      <div class="content-news wrap-more-list">
+        <div class="box-strap"></div>
+        <div class="box-strap"></div>
+        <div class="box-strap"></div>
+      </div>
+      <div class="content-news wrap-more-list">
+        <div class="box-strap"></div>
+        <div class="box-strap"></div>
+        <div class="box-strap"></div>
+      </div>
+      <div class="more-list trigger-more-list"> <span class="see-more">See more (6)</span> <span class="see-close">Close</span> </div>
+    </div>
+    <div class="footer_grid the_grid">
+      <div class="col_33">
+        <div class="block_footer_aboutus">
+          <h3>About Us</h3>
+          <div class="the_grid grid_about">
+            <div class="col_33"> <a href="/advertise/">
+              <h4>Endorsement</h4>
+              <p>Partners Inquiries</p>
+              </a> </div>
+            <div class="col_33"> <a href="/press/">
+              <h4>Press</h4>
+              <p>Media Coverage</p>
+              </a> </div>
+            <div class="col_33"> <a href="/contact/">
+              <h4>Contact</h4>
+              <p>Start Conversation</p>
+              </a> </div>
+            <div class="col_33"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col_33">
+        <div class="block_footer_newsletter">
+          <h3>Sign up for our newsletter</h3>
+          <form action="http://www.feedburner.com/fb/a/emailverify" method="post" target="popupwindow" onsubmit="window.open('http://www.feedburner.com/fb/a/emailverifySubmit?feedId=296006', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" id="newsform">
+            <div>
+              <input type="text" id="adresse_email" placeholder="Enter your e-mail" name="email">
+              <input type="hidden" value="http://feeds.feedburner.com/~e?ffid=296006" name="url">
+              <input type="hidden" value="Fubiz" name="title">
+              <input type="hidden" name="loc" value="fr_FR">
+              <button>Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col_33">
+        <div class="block_footer_follow">
+          <h3>Follow Edasia</h3>
+          <ul class="the_grid grid_follow">
+            <li class="youtube"><a href=""></a></li>
+            <li class="facebook"><a href=""></a></li>
+            <li class="google"><a href=""></a></li>
+            <li class="twitter"><a href=""></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer-two"> 
+<div class="footnote">
+<div class="footnote-logo">
+<p class="logo foot">ED.asia</p>
+</div>
+<section class="bottom"> <section class="copyright"> <p>© 2012 Edasia, All rights reserved.</p> </section> <section class="secondary"> <a href="/tos">Terms of Service</a> <a href="/privacy">Privacy Policy</a> <a href="/honor">Ethic Code</a> <a href="/help">Help</a> </section> </section>
+</div> 
+</div>
+</body>
+</html>
